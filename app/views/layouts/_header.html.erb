@@ -1,11 +1,11 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to "Friends Cart", '#', id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Log In", '/user/login' %></li>
-        <li><%= link_to "Sign Up", '/user/signup' %></li>      
-      </ul>
-    </nav>
+    <ul class="nav nav-pills navbar-right">
+				<% if current_user %>
+					<li class="<%= @logout_tab? 'active' : ''%>"><a href="/users/sign_out"><span class="glyphicon glyphicon-user"> Logout</a></li>
+				<% end %>
+			</ul>
   </div>
+
 </header>
