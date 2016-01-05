@@ -1,11 +1,21 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Friends Cart", '#', id: "logo" %>
-    <ul class="nav nav-pills navbar-right">
-				<% if current_user %>
-					<li class="<%= @logout_tab? 'active' : ''%>"><a href="/users/sign_out"><span class="glyphicon glyphicon-user"> Logout</a></li>
+		<div class="container">
+			<div class="navbar-header">
+				<%= link_to "Friends Cart", '/', id: "logo" %>
+			</div>
+			<ul class="nav nav-pills navbar-right">
+				<% if user_signed_in? %>
+				  <li><span class="glyphicon glyphicon-user">
+				  	<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+				  </li>
+				<% else %>
+				  <li><span class="glyphicon glyphicon-user">
+				  	<%= link_to('LogIn', new_user_session_path)  %>  
+				  </li>
+				  <li><span class="glyphicon glyphicon-log-in">
+			  		<%= link_to('SignUp', new_user_registration_path)  %>  
+				  </li>
 				<% end %>
-			</ul>
-  </div>
-
+			</ui>
+		</div>
 </header>
